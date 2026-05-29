@@ -7,7 +7,7 @@ import static io.appium.java_client.AppiumBy.id;
 import com.codeborne.selenide.SelenideElement;
 import ru.otus.pageobject.AbsPageObject;
 
-public abstract class AbsBasePage extends AbsPageObject {//нужен дженерик <T> ???
+public abstract class AbsBasePage extends AbsPageObject {
   private final SelenideElement userButton =
       $(id("ru.otus.wishlist:id/users_menu"));
 

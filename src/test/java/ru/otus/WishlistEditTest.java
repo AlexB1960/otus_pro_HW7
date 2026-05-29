@@ -1,6 +1,7 @@
 package ru.otus;
 
 import com.google.inject.Inject;
+import org.junit.jupiter.api.DisplayName;
 import ru.otus.extensions.AndroidExtension;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -9,7 +10,6 @@ import ru.otus.pages.LoginPage;
 import ru.otus.pages.MyWishlistPage;
 import ru.otus.utils.DatabaseUtils;
 
-//Логин и пароль СУБД сохраняем в свойствах этого файла - More Run/Debug -> Modify Run Configuration... -> -ea
 @ExtendWith(AndroidExtension.class)
 public class WishlistEditTest {
   @Inject private LoginPage loginPage;
@@ -18,6 +18,7 @@ public class WishlistEditTest {
   @Inject private DatabaseUtils databaseUtils;
 
   @Test
+  @DisplayName("Тест редактирования списка желаний пользователя")
   void editWishlist() {
     String login = "aburlaka";
     String wishlistTitle = "Заголовок вишлиста";

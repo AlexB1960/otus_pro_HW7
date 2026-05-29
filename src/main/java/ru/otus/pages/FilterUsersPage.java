@@ -17,16 +17,12 @@ public class FilterUsersPage extends AbsBasePage {
   private final SelenideElement submitButton =
       $(id("ru.otus.wishlist:id/apply_button"));
 
-  //Проверка заголловка фильтра
   public FilterUsersPage assertFilterTitle() {
     title.shouldBe(visible).shouldHave(text("Фильтр"));
     return this;
   }
 
-  //Ввод установка фильтра имени пользователя
   public void setFilterUserName(String filterUserName) {
-    //userName.setValue(filterUserName);
-
     userName.shouldBe(visible).clear();
     userName.sendKeys(filterUserName);
     submitButton.shouldBe(visible).click();

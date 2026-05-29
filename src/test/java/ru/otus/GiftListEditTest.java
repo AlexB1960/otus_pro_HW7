@@ -1,6 +1,7 @@
 package ru.otus;
 
 import com.google.inject.Inject;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import ru.otus.extensions.AndroidExtension;
@@ -19,6 +20,7 @@ public class GiftListEditTest {
   @Inject private DatabaseUtils databaseUtils;
 
   @Test
+  @DisplayName("Тест редактирования подарка пользователя")
   void editGiftList() {
     String login = "aburlaka1";
     String giftListTitle = "Кофе";

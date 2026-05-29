@@ -1,6 +1,7 @@
 package ru.otus;
 
 import com.google.inject.Inject;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import ru.otus.extensions.AndroidExtension;
@@ -18,6 +19,7 @@ public class GiftStatusEditTest {
   @Inject private DatabaseUtils databaseUtils;
 
   @Test
+  @DisplayName("Тест изменения статуса резервирования подарка другого пользователя")
   void editGiftStatus() {
     String login = "aburlaka3";
     String login2 = "aburlaka2";
@@ -49,28 +51,4 @@ public class GiftStatusEditTest {
         .tapeReserveSwitch(0)
         .assertGiftReserved(0, true);
   }
-
-  // кнопка пользователи = ru.otus.wishlist:id/users_menu        ru.otus.wishlist:id/navigation_bar_item_icon_view  [2]или[2]  ru.otus.wishlist:id/navigation_bar_item_small_label_view
-  // Отдельный пользователь в общем списке = ru.otus.wishlist:id/user_item
-  // кнопка фильтра = ru.otus.wishlist:id/filter
-
-  // нижняя шторка Фильтры = ru.otus.wishlist:id/users_filter_bottom_sheet
-  // заголовок Фильтры = ru.otus.wishlist:id/filter_title
-  // поле Имя пользователя = ru.otus.wishlist:id/username_input
-  // кнопка Применить = ru.otus.wishlist:id/apply_button
-
-  // отфильтрованный пользователь = ru.otus.wishlist:id/username
-
-  // заголовок в компоненте Желания aburlaka2 = ru.otus.wishlist:id/top_app_bar
-  // контейнер с желаниями = ru.otus.wishlist:id/wishlists
-  // одно желание (компонент? можно кликнуть по нему) = ru.otus.wishlist:id/wishlist_item
-  // заголовок одного желания = ru.otus.wishlist:id/title
-  // описание одного желания = ru.otus.wishlist:id/subtitle
-
-  // заголовок в компоненте aburlaka2: Кофе = ru.otus.wishlist:id/top_app_bar
-  // элемент (компонент) одного подарка = ru.otus.wishlist:id/gift_item
-  // название подарка = ru.otus.wishlist:id/title
-  // описание подарка = ru.otus.wishlist:id/subtitle
-  // переключатель статуса подарка = ru.otus.wishlist:id/reserved
-
 }
