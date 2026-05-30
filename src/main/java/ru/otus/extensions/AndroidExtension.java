@@ -42,6 +42,6 @@ public class AndroidExtension implements TestInstancePostProcessor,
             context.getRequiredTestClass().getSimpleName(),
             context.getRequiredTestMethod().getName()
         );
-    //INJECTOR.getInstance(LogcatManager.class).saveLogs(driver, filename);
+    INJECTOR.getInstance(LogcatManager.class).saveLogs(driver, filename);
   }
 }

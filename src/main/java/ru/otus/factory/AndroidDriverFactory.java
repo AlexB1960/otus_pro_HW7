@@ -24,8 +24,8 @@ public class AndroidDriverFactory {
     Emulator emulator = emulatorProvider.takeAndGet();
     AndroidDriver driver =
         new AndroidDriver(
-            new URI("http://127.0.0.1:%d/wd/hub".formatted(emulator.getPort())).toURL(), capabilities
-        //new URL("http://127.0.0.1:%d/".formatted(emulator.getPort())), capabilities
+        //new URI("http://127.0.0.1:%d/wd/hub".formatted(emulator.getPort())).toURL(), capabilities
+        new URL("http://127.0.0.1:%d/".formatted(emulator.getPort())), capabilities
         );
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     return driver;

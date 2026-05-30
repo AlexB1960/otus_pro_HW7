@@ -18,8 +18,8 @@ public class AndroidDriverModule extends AbstractModule {
   @Singleton
   private Capabilities capabilities() {
     return new UiAutomator2Options()
-        //.setApp("http://wiremock:8080/wishlist.apk")
-        .setApp(Paths.get("wiremock/__files/wishlist.apk").toAbsolutePath().toString())
+        .setApp("http://wiremock:8080/wishlist.apk")
+        //.setApp(Paths.get("wiremock/__files/wishlist.apk").toAbsolutePath().toString())
         .fullReset()
         .clearDeviceLogsOnStart();
   }
