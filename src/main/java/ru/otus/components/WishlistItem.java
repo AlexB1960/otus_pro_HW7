@@ -6,7 +6,6 @@ import static io.appium.java_client.AppiumBy.id;
 
 import com.codeborne.selenide.SelenideElement;
 
-//элементы компонента Желание(WishlistItem) и методы этих элементов
 public class WishlistItem extends AbsComponent<WishlistItem> {
   private final SelenideElement title =
       root.$(id("ru.otus.wishlist:id/title")).as("Заголовок элемента списка желаний");

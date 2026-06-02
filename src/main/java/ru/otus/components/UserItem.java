@@ -6,7 +6,6 @@ import static io.appium.java_client.AppiumBy.id;
 
 import com.codeborne.selenide.SelenideElement;
 
-//элементы компонента Пользователь(UserItem) и методы этих элементов
 public class UserItem extends AbsComponent<UserItem> {
   private final SelenideElement userItem =
       root.$(id("ru.otus.wishlist:id/user_item"));

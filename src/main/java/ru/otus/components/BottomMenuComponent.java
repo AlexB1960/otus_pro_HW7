@@ -5,7 +5,6 @@ import static io.appium.java_client.AppiumBy.id;
 
 import com.codeborne.selenide.SelenideElement;
 
-//компонент главного нижнего меню приложения
 public class BottomMenuComponent extends AbsComponent<BottomMenuComponent> {
   private final SelenideElement myButton =
       root.$(id("ru.otus.wishlist:id/mine_menu"));
@@ -18,7 +17,6 @@ public class BottomMenuComponent extends AbsComponent<BottomMenuComponent> {
     super(root);
   }
 
-  //нажатие кнопи главного меню Пользователь
   public void clickUserMenu() {
     userButton.shouldBe(visible.because("Элемент меню Пользователь не виден")).click();
   }

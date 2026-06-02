@@ -7,8 +7,7 @@ import com.codeborne.selenide.SelenideElement;
 import ru.otus.components.BottomMenuComponent;
 import ru.otus.pageobject.AbsPageObject;
 
-//методы и поля, общие для всех страниц
-public abstract class AbsBasePage extends AbsPageObject { //нужен дженерик <T> ???
+public abstract class AbsBasePage extends AbsPageObject {
   private final SelenideElement bottomMenu = $(id("ru.otus.wishlist:id/bottom_navigation"));
   private final BottomMenuComponent bottomMenuComponent = new BottomMenuComponent(bottomMenu);
 

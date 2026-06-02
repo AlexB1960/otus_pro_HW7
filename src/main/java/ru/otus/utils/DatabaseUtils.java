@@ -6,15 +6,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-//Для подготовки тестовых данных
 @Singleton
 public class DatabaseUtils {
   private final String url = System.getProperty("databaseUrl");
   private final String username = System.getProperty("databaseUsername");
   private final String password = System.getProperty("databasePassword");
 
-  //Описание всех вишлистов указанного аккаунта(login) перед каждым тестом редактирования описания вишлиста возвращаем в исходное состояние
-  //т.е. у аккауна должен быть только один вишлист с одним подарком (для редактирования)
   @SneakyThrows
   public void prepareWishlistDescription(String login, String description) {
     String sql = "UPDATE wishlists SET description = ? WHERE user_id IN (SELECT id FROM users WHERE username = ?)";
@@ -26,8 +23,6 @@ public class DatabaseUtils {
     }
   }
 
-  //Описание всех гифтлистов указанного аккаунта(login) перед каждым тестом редактирования описания подарка возвращаем в исходное состояние
-  //т.е. у аккауна должен быть только один вишлист с одним подарком (для редактирования)
   @SneakyThrows
   public void prepareGiftListDescription(String login, String description) {
     String sql = "UPDATE gifts SET description = ? WHERE wish_id IN (SELECT id FROM wishlists WHERE user_id IN (SELECT id FROM users WHERE username = ?))";
@@ -39,8 +34,6 @@ public class DatabaseUtils {
     }
   }
 
-  //Состояние статуса резервирования всех гифтлистов указанного аккаунта(login) перед каждым тестом редактирования статуса возвращаем в исходное состояние(false)
-  //т.е. у аккауна должен быть только один вишлист с одним подарком (для редактирования)
   @SneakyThrows
   public void prepareGiftListStatus(String login) {
     String sql = "UPDATE gifts SET is_reserved = false WHERE wish_id IN (SELECT id FROM wishlists WHERE user_id IN (SELECT id FROM users WHERE username = ?))";

@@ -5,7 +5,6 @@ import static io.appium.java_client.AppiumBy.id;
 
 import com.codeborne.selenide.SelenideElement;
 
-//элементы компонента Подарок(GiftListItem) и методы этих элементов
 public class GiftListItem extends AbsComponent<GiftListItem> {
   private final SelenideElement title =
       root.$(id("ru.otus.wishlist:id/title")).as("Заголовок элемента списка подарков");
