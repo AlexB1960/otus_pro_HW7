@@ -6,31 +6,44 @@ import static io.appium.java_client.AppiumBy.id;
 
 import com.codeborne.selenide.SelenideElement;
 import com.google.inject.Singleton;
+import ru.otus.components.TopFilterComponent;
 import ru.otus.components.UserContent;
+import ru.otus.components.UserItem;
 
-@Singleton
+@Singleton  //каждая страница создается только одна!
 public class UsersListPage extends AbsBasePage {
-  private final SelenideElement filterButton =
-      $(id("ru.otus.wishlist:id/filter"));
-
+  private final SelenideElement topFilterMenu =
+      $(id("ru.otus.wishlist:id/top_app_bar"));
+  private final TopFilterComponent topFilterComponent =
+      new TopFilterComponent(topFilterMenu);
+  //создаем контейнер всех пользователей
   private final UserContent userContent =
       new UserContent($(id("ru.otus.wishlist:id/users_content")));
 
+  //проверка видимости и размера контейнера с пользователями
   public UsersListPage assertNumberOfUsers(int value) {
     userContent.shouldBe(visible).assertSizeEqualTo(value);
     return this;
   }
 
-  public void tapUserItem(int index) {
-    userContent.get(index).shouldBe(visible).tapUser();
+  //общий метод получения пользователя из контейнера по индексу
+  private UserItem getUserItem(int index) {
+    return userContent.get(index).shouldBe(visible);
   }
 
+  //нажатие на пользователя из контейнера по индексу
+  public void tapUserItem(int index) {
+    getUserItem(index).tapUser();
+  }
+
+  //проверка имени отфильтрованного пользователя
   public UsersListPage assertFilterUser(int index, String login) {
-    userContent.get(index).shouldBe(visible).assertUserNameEqualsTo(login);
+    getUserItem(index).assertUserNameEqualsTo(login);
     return this;
   }
 
+  //нажатие кнопки фильтра пользователей
   public void tapFilterButton() {
-    filterButton.shouldBe(visible).as("Кнопка фильтра пользователей не видна").click();
+    topFilterComponent.clickFilterButton();
   }
 }

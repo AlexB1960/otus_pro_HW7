@@ -7,7 +7,7 @@ import static io.appium.java_client.AppiumBy.id;
 import com.codeborne.selenide.SelenideElement;
 import com.google.inject.Singleton;
 
-@Singleton
+@Singleton  //каждая страница создается только одна!
 public class LoginPage extends AbsBasePage {
   private final SelenideElement usernameInputField =
       $(id("ru.otus.wishlist:id/username_text_input"))

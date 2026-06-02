@@ -6,21 +6,22 @@ import static io.appium.java_client.AppiumBy.id;
 
 import com.codeborne.selenide.SelenideElement;
 
+//элементы компонента Пользователь(UserItem) и методы этих элементов
 public class UserItem extends AbsComponent<UserItem> {
   private final SelenideElement userItem =
       root.$(id("ru.otus.wishlist:id/user_item"));
   private final SelenideElement userName =
-      root.$(id("ru.otus.wishlist:id/username"));
+      root.$(id("ru.otus.wishlist:id/username")).as("Имя пользователя");
 
   public UserItem(SelenideElement root) {
     super(root);
   }
 
   public void assertUserNameEqualsTo(String value) {
-    userName.shouldHave(text(value).because("Имя пользователя"));
+    userName.shouldHave(text(value));
   }
 
   public void tapUser() {
-    userItem.shouldBe(visible).as("Элемент пользователя в списке не виден").click();
+    userItem.shouldBe(visible.because("Элемент пользователя в списке не виден")).click();
   }
 }

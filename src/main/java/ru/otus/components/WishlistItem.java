@@ -6,31 +6,32 @@ import static io.appium.java_client.AppiumBy.id;
 
 import com.codeborne.selenide.SelenideElement;
 
+//элементы компонента Желание(WishlistItem) и методы этих элементов
 public class WishlistItem extends AbsComponent<WishlistItem> {
   private final SelenideElement title =
-      root.$(id("ru.otus.wishlist:id/title"));
+      root.$(id("ru.otus.wishlist:id/title")).as("Заголовок элемента списка желаний");
   private final SelenideElement subtitle =
-      root.$(id("ru.otus.wishlist:id/subtitle"));
+      root.$(id("ru.otus.wishlist:id/subtitle")).as("Подзаголовок элемента списка желаний");
   private final SelenideElement editButton =
-      root.$(id("ru.otus.wishlist:id/edit_button"));
+      root.$(id("ru.otus.wishlist:id/edit_button")).as("Кнопка редактирования элемента списка желаний");
 
   public WishlistItem(SelenideElement root) {
     super(root);
   }
 
   public void assertTitleEqualsTo(String value) {
-    title.shouldHave(text(value).because("Заголовок элемента списка желаний"));
+    title.shouldHave(text(value));
   }
 
   public void assertSubtitleEqualsTo(String value) {
-    subtitle.shouldHave(text(value).because("Подзаголовок элемента списка желаний"));
+    subtitle.shouldHave(text(value));
   }
 
   public void tapEdit() {
-    editButton.shouldBe(visible).as("Кнопка редактирования не видна").click();
+    editButton.shouldBe(visible.because("Кнопка редактирования не видна")).click();
   }
 
   public void tapTitle() {
-    title.shouldBe(visible).as("Заголовок элемента списка желаний не виден").click();
+    title.shouldBe(visible.because("Заголовок элемента списка желаний не виден")).click();
   }
 }

@@ -17,11 +17,13 @@ public class EditGiftListPage extends AbsBasePage {
   private final SelenideElement saveButton =
       $(id("ru.otus.wishlist:id/save_button"));
 
+  //Проверка заголовка гифтлиста
   public EditGiftListPage assertEditGiftListTitle(String expected) {
     title.shouldBe(visible).shouldHave(text(expected));
     return this;
   }
 
+  //Изменение описания гифтлиста и проверка видимости этого изменения
   public void editDescription(String description) {
     descriptionInputField.shouldBe(visible).clear();
     descriptionInputField.sendKeys(description);
