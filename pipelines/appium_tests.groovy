@@ -4,6 +4,7 @@ timeout(500) {
      currentBuild.description = "Running appium-tests on Jenkins"
 
      stage("Running appium-tests on Jenkins") {
+        sh "docker compose up -d"
         sh "docker run --shm-size=4gb --rm --network host tests_appium:1.0"
      }
    }
